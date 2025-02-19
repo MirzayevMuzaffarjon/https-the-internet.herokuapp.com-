@@ -2,7 +2,6 @@ from Pages.A_B_Testing_page import ABTestingPage
 from Pages.Add_Remove_element_page import AddRemoveElementPage
 
 
-
 def test_ab_testing_page(page):
     user = ABTestingPage(page)
     user.open_home_page()
@@ -20,4 +19,3 @@ def test_add_remove_page(page):
     user.check_element_added_successfully()
     user.click_delete_button()
     user.check_element_deleted_successfully()
-

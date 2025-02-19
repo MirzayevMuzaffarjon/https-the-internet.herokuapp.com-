@@ -11,4 +11,3 @@ class Locators:
         self.head_of_add_remove_page = self.page.get_by_role("heading", name="Add/Remove Elements")
         self.add_remove_page_add_element_button = self.page.get_by_role("button", name="Add Element")
         self.add_remove_page_delete_button = self.page.get_by_role("button", name="Delete")
-

@@ -25,5 +25,3 @@ class AddRemoveElementPage(BasePage):
 
     def check_element_deleted_successfully(self):
         expect(self.add_remove_page_delete_button).not_to_be_visible()
-
-
