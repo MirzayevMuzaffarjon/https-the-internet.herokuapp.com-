@@ -11,3 +11,6 @@ class Locators:
         self.head_of_add_remove_page = self.page.get_by_role("heading", name="Add/Remove Elements")
         self.add_remove_page_add_element_button = self.page.get_by_role("button", name="Add Element")
         self.add_remove_page_delete_button = self.page.get_by_role("button", name="Delete")
+        self.broken_images_page_locator =  self.page.get_by_role("link", name="Broken Images")
+        self.head_of_broken_images_page = self.page.get_by_role("heading", name="Broken Images")
+        self.images = self.page.locator("img")  # Sahifadagi barcha rasm elementlarini olish
