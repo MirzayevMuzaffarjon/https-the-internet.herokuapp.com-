@@ -14,7 +14,7 @@ class BasePage(Locators):
         return os.getenv(key)
 
     def open_home_page(self):
-        self.page.goto(self.get_private_variable('base_url'))
+        self.page.goto(self.get_private_variable('BASE_URL'))
 
     def wait(self, time):
         self.page.wait_for_timeout(time*1000)
