@@ -22,8 +22,6 @@ jobs:
       run: playwright install --with-deps
     - name: Create .env file
       run: |
-        echo "USERNAME=${{ secrets.USERNAME }}" >> .env
-        echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
         echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
     - name: Ensure test results directory exists
       run: mkdir -p test-results
