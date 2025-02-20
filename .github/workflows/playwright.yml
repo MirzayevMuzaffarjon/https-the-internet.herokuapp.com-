@@ -1,12 +1,12 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
+    branches: main
   pull_request:
-    branches: [ main, master ]
+    branches: main
 jobs:
   test:
-    timeout-minutes: 60
+    timeout-minutes: 30
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -18,16 +18,15 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install pytest-playwright
-        playwright install
-
+    - name: Install Playwright browsers
+      run: playwright install --with-deps
     - name: Create .env file
       run: |
-        echo "USERNAME=${{ SECRET_VARIABLES.USERNAME }}" >> .env
-        echo "PASSWORD=${{ SECRET_VARIABLES.PASSWORD }}" >> .env
-        echo "BASE_URL=${{ SECRET_VARIABLES.BASE_URL }}" >> .env
-
-    - name: Ensure browsers are installed
-      run: python -m playwright install --with-deps
+        echo "USERNAME=${{ secrets.USERNAME }}" >> .env
+        echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
+        echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
+    - name: Ensure test results directory exists
+      run: mkdir -p test-results
     - name: Run your tests
       run: pytest -s -v --tracing=retain-on-failure
     - uses: actions/upload-artifact@v4
