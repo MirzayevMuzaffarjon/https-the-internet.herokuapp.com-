@@ -23,7 +23,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-             - pip install pytest-playwright pytest-html
+             - pip install pytest-playwright 
+             - pip install pytest-html
              - playwright install
 
       - name: Create .env file
