@@ -23,8 +23,8 @@ jobs:
 
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest-html
 
       - name: Create .env file
         run: |
@@ -33,13 +33,4 @@ jobs:
           echo "BASE_URL=${{ secrets.BASE_URL }}" >> .env
 
       - name: Run Playwright tests
-        run: pytest -s -v --html=report.html --video=retain-on-failure
-
-      - name: Test natijalarini yuklash (Artefaktlar)
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-results
-          path: |
-            report.html
-            **/*.webm
-          retention-days: 30  # Artefaktlar 30 kun saqlanadi
+        run: pytest -s -v
