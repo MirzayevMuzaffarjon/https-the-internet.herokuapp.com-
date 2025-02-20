@@ -28,7 +28,7 @@ jobs:
     - name: Ensure test results directory exists
       run: mkdir -p test-results
     - name: Run your tests
-      run: pytest -s -v --tracing=retain-on-failure
+      run: pytest Tests/ -s -v --tracing=retain-on-failure
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
