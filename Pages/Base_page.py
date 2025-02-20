@@ -7,11 +7,11 @@ class BasePage(Locators):
     def __init__(self, page : Page):
         super().__init__(page)
         self.page = page
-        self.os = os
         load_dotenv()
 
-    def get_private_variable(self, key):
-        return self.os.getenv(key)
+    @staticmethod
+    def get_private_variable(key):
+        return os.getenv(key)
 
     def open_home_page(self):
         self.page.goto(self.get_private_variable('base_url'))
