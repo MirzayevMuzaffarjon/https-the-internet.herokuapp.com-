@@ -12,7 +12,8 @@ class BrokenImagesPage(BasePage):
         expect(self.head_of_broken_images_page).to_be_visible()
 
     def check_images_are_broken(self):
-        for i in range(self.images.count()):
+        count = self.images.count()
+        for i in range(count):
             image = self.images.nth(i)
             width = image.evaluate("img => img.naturalWidth")
             if width == 0:
